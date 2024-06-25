@@ -1,5 +1,7 @@
 import React, { Suspense, useState } from 'react';
 import './App.css';
+import './i18n/config';
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const NotFound = React.lazy(() => import('./pages/notFound/NotFound'));

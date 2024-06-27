@@ -93,6 +93,25 @@ const theme = createTheme({
             }),
         })
       }
+    },
+    // Typografia
+    MuiTypography: {
+      styleOverrides: {
+        root: ({ ownerState }) => ({
+          color: theme.palette.text.primary,
+          fontFamily: "Inter",
+          fontWeight: "bold",
+          // H1 tag
+          ...(ownerState.variant === "h1" && {
+            color: theme.palette.text.primary
+          }),
+          // p tag
+          ...(ownerState.variant === "inherit" && {
+            color: theme.palette.text.secondary,
+            fontWeight: "normal"
+          })
+        })
+      }
     }
   }
 });

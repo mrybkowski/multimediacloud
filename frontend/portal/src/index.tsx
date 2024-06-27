@@ -6,6 +6,8 @@ import { CssBaseline } from '@mui/material';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import theme from './utils/theme/theme';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/700.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

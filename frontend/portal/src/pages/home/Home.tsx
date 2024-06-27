@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
+import Button from '@mui/material/Button';
 
 function Home() {
     const { t } = useTranslation();
@@ -12,8 +13,8 @@ function Home() {
         <>
             <h1>Portal</h1>
             <p>{t('title')}</p>
-            <button onClick={() => changeLanguage('en')}>English</button>
-            <button onClick={() => changeLanguage('pl')}>Polski</button>
+            <Button variant="outlined" onClick={() => changeLanguage('en')}>English</Button>
+            <Button variant="contained" onClick={() => changeLanguage('pl')}>Polski</Button>
         </>
     );
 }

@@ -1,6 +1,6 @@
 import React, { Suspense, useState } from 'react';
 import './App.css';
-import './i18n/config';
+import './utils/i18n/config';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -13,14 +13,14 @@ function App() {
   
   return (
     <div className="App">
-      <BrowserRouter>
-        <Suspense fallback={<div>Ładowanie...</div>}>
-          <Routes>
-            <Route path="*" element={<NotFound />} />
-            <Route path="/" element={isLoggedIn ? <LazyHome /> : <NotFound />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Suspense fallback={<div>Ładowanie...</div>}>
+            <Routes>
+              <Route path="*" element={<NotFound />} />
+              <Route path="/" element={isLoggedIn ? <LazyHome /> : <NotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
     </div>
   );
 }

@@ -13,8 +13,20 @@ function Home() {
         <>
             <h1>Portal</h1>
             <p>{t('title')}</p>
-            <Button variant="outlined" onClick={() => changeLanguage('en')}>English</Button>
-            <Button variant="contained" onClick={() => changeLanguage('pl')}>Polski</Button>
+            <div className="d-flex">
+                <div>
+                    <Button color="primary" variant="contained" onClick={() => changeLanguage('pl')}>Polski</Button>
+                    <Button color="secondary" variant="contained" onClick={() => changeLanguage('en')}>English</Button>
+                </div>
+                <div>
+                    <Button color="primary" variant="outlined" onClick={() => changeLanguage('pl')}>Polski</Button>
+                    <Button color="secondary" variant="outlined" onClick={() => changeLanguage('en')}>English</Button>
+                </div>
+                <div>
+                    <Button color="primary" variant="text" onClick={() => changeLanguage('pl')}>Polski</Button>
+                    <Button color="secondary" variant="text" onClick={() => changeLanguage('en')}>English</Button>
+                </div>
+            </div>
         </>
     );
 }

@@ -8,6 +8,10 @@ import reportWebVitals from './reportWebVitals';
 import theme from './utils/theme/theme';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/700.css';
+import { AuthProvider } from './context/AuthProvider';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,12 +19,16 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <App />
-      </ThemeProvider>
-    </StyledEngineProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <StyledEngineProvider injectFirst>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <App />
+          </ThemeProvider>
+        </StyledEngineProvider>
+      </AuthProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 

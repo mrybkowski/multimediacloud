@@ -1,8 +1,23 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     extend: {},
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      rose: {
+        500: "#f43f5e"
+      },
+      violet: {
+        500: "#8b5cf6"
+      },
+      cyan: {
+        500: "#06b6d4"
+      }
+    },
   },
   plugins: [],
 }

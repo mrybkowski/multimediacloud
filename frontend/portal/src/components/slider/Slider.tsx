@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState, useRef, useEffect, ReactNode } from "react";
 import { Box, IconButton } from "@mui/material";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import { styled } from "@mui/system";
 import theme from "../../utils/theme/theme";
 
 interface ISlider {
-  items: React.ReactNode[];
+  items: ReactNode[];
 }
 
 const SliderContainer = styled(Box)({
@@ -69,6 +69,9 @@ const Dot = styled(Box)(({ active }: { active: boolean }) => ({
 
 function Slider({ items }: ISlider) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [startPosition, setStartPosition] = useState<number | null>(null);
+  const [currentPosition, setCurrentPosition] = useState<number | null>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   const handlePrev = () => {
     if (currentIndex > 0) {
@@ -86,8 +89,56 @@ function Slider({ items }: ISlider) {
     setCurrentIndex(index);
   };
 
+  const handleMouseDown = (event: React.MouseEvent) => {
+    setStartPosition(event?.clientX);
+  };
+
+  const handleMouseMove = (event: React.MouseEvent) => {
+    if (startPosition !== null) {
+      setCurrentPosition(event?.clientX);
+    }
+  };
+
+  const handleMouseUp = () => {
+    if (startPosition !== null && currentPosition !== null) {
+      const distance = startPosition - currentPosition;
+      if (distance > 50) {
+        handleNext();
+      } else if (distance < -50) {
+        handlePrev();
+      }
+    }
+    setStartPosition(null);
+    setCurrentPosition(null);
+  };
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "ArrowLeft") {
+      handlePrev();
+    } else if (event.key === "ArrowRight") {
+      handleNext();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex]);
+
   return (
-    <Box position="relative" width="100%" height="100%">
+    <Box 
+      position="relative" 
+      width="100%" 
+      height="100%" 
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+      ref={sliderRef}
+    >
       <SliderContainer>
         <SliderContent style={{ transform: `translateX(-${currentIndex * 100}%)`, width: `${items?.length * 100}%` }}>
           {items.map((item, index) => (

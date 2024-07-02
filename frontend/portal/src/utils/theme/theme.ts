@@ -1,10 +1,10 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
     primary: {
       main: "#1D7C9A",
-      light: "#CFECF5"
+      light: "#A9E2F5"
     },
     secondary: {
       main: "#F1E3CF",
@@ -13,6 +13,9 @@ const theme = createTheme({
     text: {
       primary: "#2E333D",
       secondary: "#484E59"
+    },
+    common: {
+      white: "#fff"
     }
   },
   components: {
@@ -32,7 +35,7 @@ const theme = createTheme({
               color: theme.palette.primary.main,
               borderColor: theme.palette.primary.light,
               backgroundColor: theme.palette.primary.light,
-              '&:hover': {
+              "&:hover": {
                 backgroundColor: theme.palette.primary.main,
                 color: theme.palette.primary.light,
                 borderColor: theme.palette.primary.main
@@ -43,7 +46,7 @@ const theme = createTheme({
               color: theme.palette.text.secondary,
               borderColor: theme.palette.secondary.main,
               backgroundColor: theme.palette.secondary.main,
-              '&:hover': {
+              "&:hover": {
                 backgroundColor: theme.palette.secondary.light,
                 color: theme.palette.text.secondary,
                 borderColor: theme.palette.secondary.main
@@ -53,7 +56,7 @@ const theme = createTheme({
             ...(ownerState.variant === "outlined" && ownerState.color === "primary" && {
               color: theme.palette.primary.main,
               borderColor: theme.palette.primary.light,
-              '&:hover': {
+              "&:hover": {
                 backgroundColor: theme.palette.primary.light,
                 color: theme.palette.primary.main,
                 borderColor: theme.palette.primary.main
@@ -63,7 +66,7 @@ const theme = createTheme({
             ...(ownerState.variant === "outlined" && ownerState.color === "secondary" && {
               color: theme.palette.text.secondary,
               borderColor: theme.palette.secondary.main,
-              '&:hover': {
+              "&:hover": {
                 backgroundColor: theme.palette.secondary.light,
                 color: theme.palette.text.secondary,
                 borderColor: theme.palette.secondary.main
@@ -74,7 +77,7 @@ const theme = createTheme({
               color: theme.palette.primary.main,
               borderColor: "transparent",
               boxShadow: "none",
-              '&:hover': {
+              "&:hover": {
                 backgroundColor: theme.palette.primary.light,
                 color: theme.palette.primary.main,
                 borderColor: theme.palette.primary.main
@@ -85,7 +88,7 @@ const theme = createTheme({
               color: theme.palette.secondary.main,
               borderColor: "transparent",
               boxShadow: "none",
-              '&:hover': {
+              "&:hover": {
                 backgroundColor: theme.palette.secondary.light,
                 color: theme.palette.text.secondary,
                 borderColor: theme.palette.secondary.main

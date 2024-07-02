@@ -1,76 +1,33 @@
-import { useTranslation } from 'react-i18next';
-import i18next from 'i18next';
-import { Button, Typography } from '@mui/material';
+import { Box, Container, Typography } from "@mui/material";
+import { Slider } from "../../components";
 
 function Home() {
-    const { t } = useTranslation();
+  const items = [
+    <Box className="bg-rose-500 flex flex-col items-center justify-center w-full h-full">
+      <Container>
+        <Typography variant="h2">123</Typography>
+        <Typography variant="inherit">123</Typography>
+      </Container>
+    </Box>,
+    <Box className="bg-violet-500 flex flex-col items-center justify-center w-full h-full">
+      <Container>
+        <Typography variant="h2">123</Typography>
+        <Typography variant="inherit">123</Typography>
+      </Container>
+    </Box>,
+    <Box className="bg-cyan-500 flex flex-col items-center justify-center w-full h-full">
+      <Container>
+        <Typography variant="h2">123</Typography>
+        <Typography variant="inherit">123</Typography>
+      </Container>
+    </Box>,
+  ];
 
-    const changeLanguage = (lng: string) => {
-        i18next.changeLanguage(lng);
-      };
-
-    return (
-        <>
-            <Typography variant="h1">
-                Portal
-            </Typography>
-            <Typography variant="inherit">
-                {t('title')}
-            </Typography>
-            <div className="d-flex">
-                <div>
-                    <Button color="primary" variant="contained" onClick={() => changeLanguage('pl')}>Polski</Button>
-                    <Button color="secondary" variant="contained" onClick={() => changeLanguage('en')}>English</Button>
-                </div>
-                <div>
-                    <Button color="primary" variant="outlined" onClick={() => changeLanguage('pl')}>Polski</Button>
-                    <Button color="secondary" variant="outlined" onClick={() => changeLanguage('en')}>English</Button>
-                </div>
-                <div>
-                    <Button color="primary" variant="text" onClick={() => changeLanguage('pl')}>Polski</Button>
-                    <Button color="secondary" variant="text" onClick={() => changeLanguage('en')}>English</Button>
-                </div>
-                <div>
-                    <Typography variant="h1">
-                        h1. Heading
-                    </Typography>
-                    <Typography variant="inherit">
-                        p. Inherit
-                    </Typography>
-                    <Typography variant="h2">
-                        h2. Heading
-                    </Typography>
-                    <Typography variant="inherit">
-                        p. Inherit
-                    </Typography>
-                    <Typography variant="h3">
-                        h3. Heading
-                    </Typography>
-                    <Typography variant="inherit">
-                        p. Inherit
-                    </Typography>
-                    <Typography variant="h4">
-                        h4. Heading
-                    </Typography>
-                    <Typography variant="inherit">
-                        p. Inherit
-                    </Typography>
-                    <Typography variant="h5">
-                        h5. Heading
-                    </Typography>
-                    <Typography variant="inherit">
-                        p. Inherit
-                    </Typography>
-                    <Typography variant="h6">
-                        h6. Heading
-                    </Typography>
-                    <Typography variant="inherit">
-                        p. Inherit
-                    </Typography>
-                </div>
-            </div>
-        </>
-    );
+  return (
+    <Box className="h-screen">
+      <Slider items={items} />
+    </Box>
+  );
 }
 
 export default Home;

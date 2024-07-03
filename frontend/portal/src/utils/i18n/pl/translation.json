@@ -1,3 +1,26 @@
 {
-    "title": "Cześć"
+  "home": {
+    "slider": {
+      "first": {
+        "title": "Bezpieczna sprzedaż zdjęć online",
+        "description": "Nasza aplikacja umożliwia fotografom bezpieczne zarządzanie i sprzedaż zdjęć online, zapewniając zaawansowane znaki wodne, które chronią Twoje prace przed nieautoryzowanym wykorzystaniem."
+      },
+      "second": {
+        "title": "Inteligentne filtrowanie zdjęć",
+        "description": "Dzięki naszym rozwiązaniom AI, w tym wykrywaniu twarzy, możesz łatwo przefiltrować swoje galerie zdjęć, ułatwiając klientom znalezienie dokładnie tego, czego szukają."
+      },
+      "third": {
+        "title": "Galerie prywatne i publiczne",
+        "description": "Twórz prywatne i publiczne galerie zdjęć, które pozwalają Twoim klientom wygodnie przeglądać, wybierać i kupować ulubione fotografie. Nasze intuicyjne narzędzia ułatwiają zarządzanie Twoimi zbiorami zdjęć."
+      },
+      "fourth": {
+        "title": "Popularne opcje płatności online",
+        "description": "Oferujemy zintegrowane opcje płatności online, które pozwalają Twoim klientom szybko i bezpiecznie dokonywać zakupu zdjęć. Dzięki temu proces sprzedaży jest prosty i efektywny."
+      },
+      "fifth": {
+        "title": "Zarządzanie kalendarzem i system rezerwacji sesji",
+        "description": "Zintegruj swoje fotograficzne przedsięwzięcia z naszym inteligentnym systemem rezerwacji sesji i zarządzania kalendarzem. Umożliwia on klientom łatwe umawianie sesji, a Tobie – efektywne planowanie i zarządzanie czasem."
+      }
+    }
   }
+}

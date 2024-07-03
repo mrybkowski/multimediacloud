@@ -1,3 +1,26 @@
 {
-    "title": "Welcome"
+  "home": {
+    "slider": {
+      "first": {
+        "title": "Secure online photo sales",
+        "description": "Our application enables photographers to securely manage and sell photos online, providing advanced watermarks that protect your work from unauthorized use."
+      },
+      "second": {
+        "title": "Intelligent photo filtering",
+        "description": "With our AI solutions, including face detection, you can easily filter your photo galleries, making it easier for clients to find exactly what they are looking for."
+      },
+      "third": {
+        "title": "Private and public galleries",
+        "description": "Create private and public photo galleries that allow your clients to conveniently browse, select, and purchase their favorite photos. Our intuitive tools facilitate management of your photo collections."
+      },
+      "fourth": {
+        "title": "Popular online payment options",
+        "description": "We offer integrated online payment options that allow your clients to make quick and secure photo purchases. This simplifies and streamlines the sales process."
+      },
+      "fifth": {
+        "title": "Calendar management and session booking system",
+        "description": "Integrate your photography projects with our intelligent session booking and calendar management system. It enables easy session booking for clients and efficient time management for you."
+      }
+    }
   }
+}

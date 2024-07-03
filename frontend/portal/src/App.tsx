@@ -13,7 +13,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   
   return (
-    <div className="App">
+    <div className="App select-none">
         <BrowserRouter>
           <Suspense fallback={<div>Ładowanie...</div>}>
             <Routes>

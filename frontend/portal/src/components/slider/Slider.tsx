@@ -4,15 +4,16 @@ import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import { styled } from "@mui/system";
 import theme from "../../utils/theme/theme";
 
-interface ISlider {
+export interface ISlider {
   items: ReactNode[];
+  isDotVisible?: boolean;
+  isArrowsVisible?: boolean;
 }
 
 const SliderContainer = styled(Box)({
   display: "flex",
   overflow: "hidden",
   position: "relative",
-  width: "100%",
   height: "100%"
 });
 
@@ -38,7 +39,6 @@ const DotsContainer = styled(Box)({
   bottom: "15%",
   left: "50%",
   transform: "translateX(-50%)",
-  width: "100%",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -67,7 +67,7 @@ const Dot = styled(Box)(({ active }: { active: boolean }) => ({
   } : {}
 }));
 
-function Slider({ items }: ISlider) {
+function Slider({ items, isDotVisible=true, isArrowsVisible=true }: ISlider) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [startPosition, setStartPosition] = useState<number | null>(null);
   const [currentPosition, setCurrentPosition] = useState<number | null>(null);
@@ -130,9 +130,7 @@ function Slider({ items }: ISlider) {
 
   return (
     <Box 
-      position="relative" 
-      width="100%" 
-      height="100%" 
+      className="relative h-full" 
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
@@ -140,7 +138,7 @@ function Slider({ items }: ISlider) {
       ref={sliderRef}
     >
       <SliderContainer>
-        <SliderContent style={{ transform: `translateX(-${currentIndex * 100}%)`, width: `${items?.length * 100}%` }}>
+        <SliderContent style={{ transform: `translateX(-${currentIndex * 100}%)`, width: "100%" }}>
           {items.map((item, index) => (
             <SliderItem key={index}>
               {item}
@@ -148,21 +146,27 @@ function Slider({ items }: ISlider) {
           ))}
         </SliderContent>
       </SliderContainer>
-      {currentIndex > 0 && (
-        <IconButton onClick={handlePrev} sx={{ position: "absolute", left: 50, top: "50%", transform: "translateY(-50%)" }}>
-          <ArrowBackIos htmlColor={theme.palette.common.white} fontSize="large" />
-        </IconButton>
+      {isArrowsVisible && (
+        <>
+          {currentIndex > 0 && (
+            <IconButton onClick={handlePrev} sx={{ position: "absolute", left: 50, top: "50%", transform: "translateY(-50%)" }}>
+              <ArrowBackIos htmlColor={theme.palette.common.white} fontSize="large" />
+            </IconButton>
+          )}
+          {currentIndex < items.length - 1 && (
+            <IconButton onClick={handleNext} sx={{ position: "absolute", right: 50, top: "50%", transform: "translateY(-50%)" }}>
+              <ArrowForwardIos htmlColor={theme.palette.common.white} fontSize="large" />
+            </IconButton>
+          )}
+        </>
       )}
-      {currentIndex < items.length - 1 && (
-        <IconButton onClick={handleNext} sx={{ position: "absolute", right: 50, top: "50%", transform: "translateY(-50%)" }}>
-          <ArrowForwardIos htmlColor={theme.palette.common.white} fontSize="large" />
-        </IconButton>
+      {isDotVisible && (
+        <DotsContainer>
+            {items?.map((_, index) => (
+              <Dot key={index} active={index === currentIndex} onClick={() => handleDotClick(index)} />
+            ))}
+        </DotsContainer>
       )}
-      <DotsContainer>
-          {items?.map((_, index) => (
-            <Dot key={index} active={index === currentIndex} onClick={() => handleDotClick(index)} />
-          ))}
-      </DotsContainer>
     </Box>
   );
 };

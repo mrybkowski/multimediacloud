@@ -16,6 +16,12 @@ module.exports = {
       },
       cyan: {
         500: "#06b6d4"
+      },
+      orange: {
+        500: "#f97316"
+      },
+      green: {
+        500: "#22c55e"
       }
     },
   },

@@ -10,6 +10,7 @@ import '@fontsource/inter/400.css';
 import '@fontsource/inter/700.css';
 import { AuthProvider } from './context/AuthProvider';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { HelmetProvider } from 'react-helmet-async';
 
 const queryClient = new QueryClient();
 
@@ -24,7 +25,9 @@ root.render(
         <StyledEngineProvider injectFirst>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <App />
+            <HelmetProvider>
+              <App />
+            </HelmetProvider>
           </ThemeProvider>
         </StyledEngineProvider>
       </AuthProvider>

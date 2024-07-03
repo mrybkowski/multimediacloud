@@ -1,0 +1,10 @@
+{
+    "home": {
+        "title": "Main page",
+        "description": "Description of main page"
+    },
+    "login": {
+        "title": "Login page",
+        "description": "Description of login page"
+    }
+}

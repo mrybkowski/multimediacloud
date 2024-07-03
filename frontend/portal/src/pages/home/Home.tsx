@@ -1,5 +1,5 @@
 import { Box, Container, Typography } from "@mui/material";
-import { Slider } from "../../components";
+import { SEO, Slider } from "../../components";
 import { useTranslation } from "react-i18next";
 
 interface IHomeSliderElements {
@@ -26,16 +26,24 @@ function Home() {
   ];
 
   return (
-    <Box className="h-screen">
-      <Slider items={sliders.map(slider => (
-        <Box className={`${slider.bgColor} flex flex-col items-center justify-center w-full h-full`}>
-          <Container className="flex flex-col items-center justify-center gap-5">
-            <Typography className="text-balance" variant="h2">{t(slider.titleKey)}</Typography>
-            <Typography className="text-balance w-full lg:w-[50%]" variant="inherit">{t(slider.descriptionKey)}</Typography>
-          </Container>
-        </Box>
-      ))} />
-    </Box>
+    <>
+      <SEO
+        title={t("seo:home.title")}
+        description={t("seo:home.description")}
+        name="marpio Sp. z o.o."
+        type="article" 
+      />
+      <Box className="h-screen">
+        <Slider items={sliders.map(slider => (
+          <Box className={`${slider.bgColor} flex flex-col items-center justify-center w-full h-full`}>
+            <Container className="flex flex-col items-center justify-center gap-5">
+              <Typography className="text-balance" variant="h2">{t(slider.titleKey)}</Typography>
+              <Typography className="text-balance w-full lg:w-[50%]" variant="inherit">{t(slider.descriptionKey)}</Typography>
+            </Container>
+          </Box>
+        ))} />
+      </Box>
+    </>
   );
 }
 

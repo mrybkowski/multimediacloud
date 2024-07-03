@@ -1,0 +1,10 @@
+{
+    "home": {
+        "title": "Strona główna",
+        "description": "Opis strony głównej"
+    },
+    "login": {
+        "title": "Strona logowania",
+        "description": "Opis strony logowania"
+    }
+}
